@@ -2,17 +2,10 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import mysql from "mysql2";
 import dotenv from "dotenv";
+import promisePool from "../config/db";
 
 dotenv.config();
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-});
-
-const promisePool = pool.promise();
 const router = express.Router();
 
 router.get("/", (req, res) => {
