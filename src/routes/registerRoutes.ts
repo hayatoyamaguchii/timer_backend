@@ -1,6 +1,5 @@
 import express from "express";
 import bcrypt from "bcryptjs";
-import mysql from "mysql2";
 import dotenv from "dotenv";
 import promisePool from "../config/db";
 
@@ -14,7 +13,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
     const { name, email, password } = req.body;
-    console.log(req);
+    // console.log(req);
 
     try {
         // パスワードをハッシュ化し、フォームの内容をINSERT。

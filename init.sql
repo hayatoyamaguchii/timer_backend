@@ -41,12 +41,9 @@ CREATE TABLE IF NOT EXISTS work_names (
 
 CREATE TABLE IF NOT EXISTS timer_records (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
     work_name_id INT NOT NULL,
     duration INT NOT NULL,
-    start_time TIMESTAMP NOT NULL,
-    end_time TIMESTAMP NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (work_name_id) REFERENCES work_names(id) ON DELETE CASCADE

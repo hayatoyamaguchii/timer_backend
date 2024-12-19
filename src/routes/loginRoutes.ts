@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res): Promise<void> => {
     const { email, password } = req.body;
-    console.log(req);
+    // console.log(req);
 
     try {
         // emailに合致するレコードをSELECT。
@@ -42,7 +42,7 @@ router.post("/", async (req, res): Promise<void> => {
         const token = jwt.sign(
             { userId: user.id },
             process.env.JWT_SECRET || "mysecretkey",
-            { expiresIn: process.env.JWT_EXPIRATION || "1h" }
+            { expiresIn: process.env.JWT_EXPIRATION || "24h" }
         );
         res.json({ token });
     } catch (error) {
